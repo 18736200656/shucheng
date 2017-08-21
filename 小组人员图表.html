@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<script src="echarts.js"></script>
+<!--为Echarts准备一个具备大小的dom-->
+<div id="main" style="width:600px;height:400px;"></div>
+<script>
+  // 基于准备好的dom，初始化echarts实例
+  var myCharts =  echarts.init(document.getElementById('main'));
+  //指定图表的配置项和数据
+ var option = {
+    tooltip : {
+      trigger: 'axis',
+      axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+        type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+      }
+    },
+    legend: {
+      data:['身高','年龄','性别']
+    },
+    grid: {
+      left: '2%',
+      right: '2%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis : [
+      {
+        type : 'category',
+        data : ['杨国庆','张鑫','马树军','任宗豪','张碧玲','李杰然']
+      }
+    ],
+    yAxis : [
+      {
+        type : 'value'
+      }
+    ],
+    series : [
+      {
+        name:'身高',
+        type:'bar',
+        data:[170,180,140,160,150,180]
+      },
+      {
+        name:'年龄',
+        type:'bar',
+        
+        data:[22,20,25,30,40,60]
+      },
+      {
+        name:'性别',
+        type:'bar',
+        
+        data:['男','男','男','男','女','男']
+      }
+    ]
+  };
+  // 使用刚指定的配置项和数据显示图表。
+  myCharts.setOption(option);
+</script>
+
+</body>
+</html>
